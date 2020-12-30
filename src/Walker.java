@@ -1,42 +1,46 @@
-public class Homokjáró extends Thing {
+public class Walker extends Creature{
 
-    int distance = 0;
-
-    public Homokjáró(String name , int water) {
+    public Walker(String name, int water, int distance) {
         super.name = name;
         super.water = water;
-        super.maxWater = 8;
+        super.maxWater = 12;
         super.isAlive = true;
         super.distance = distance;
     }
 
-
     @Override
     public void oneDayOfThing(Weather weather) {
-        if (water < 0) {
+        if (maxWater < 0) {
             isAlive = false;
             return;
         }
-        if(weather.equals("n")) {
-            distance += 3;
-            water -= 1;
-        }else if (weather.equals("f")) {
-            setDistance(1);
-        }else {
-            if (water == maxWater) {
+        if (weather.equals("n")) {
+            distance += 1;
+            if (maxWater == 12) {
 
             }else {
-                water += 3;
+                maxWater -= 2;
+            }
+        }else if (weather.equals("f")) {
+            distance += 2;
+            if (maxWater == 12) {
+
+            }else {
+                maxWater -= 1;
+            }
+        }else {
+            distance += 1;
+            if (maxWater == 12) {
+
+            }else {
+                maxWater += 3;
             }
         }
-    }
-    public void setDistance(int distance) {
-        this.distance = distance;
     }
 
     @Override
     public String toString() {
-        return "Homokjáró{" +
+        return "Walker{" +
                 "name='" + name + '\'' +
                 ", isAlive=" + isAlive +
                 ", water=" + water +

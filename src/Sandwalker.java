@@ -1,46 +1,42 @@
-public class Lépegető extends Thing{
+public class Sandwalker extends Creature {
 
-    public Lépegető(String name, int water, int distance) {
+    int distance = 0;
+
+    public Sandwalker(String name , int water) {
         super.name = name;
         super.water = water;
-        super.maxWater = 12;
+        super.maxWater = 8;
         super.isAlive = true;
         super.distance = distance;
     }
 
+
     @Override
     public void oneDayOfThing(Weather weather) {
-        if (maxWater < 0) {
+        if (water < 0) {
             isAlive = false;
             return;
         }
-        if (weather.equals("n")) {
-            distance += 1;
-            if (maxWater == 12) {
-
-            }else {
-                maxWater -= 2;
-            }
+        if(weather.equals("n")) {
+            distance += 3;
+            water -= 1;
         }else if (weather.equals("f")) {
-            distance += 2;
-            if (maxWater == 12) {
-
-            }else {
-                maxWater -= 1;
-            }
+            setDistance(1);
         }else {
-            distance += 1;
-            if (maxWater == 12) {
+            if (water == maxWater) {
 
             }else {
-                maxWater += 3;
+                water += 3;
             }
         }
+    }
+    public void setDistance(int distance) {
+        this.distance = distance;
     }
 
     @Override
     public String toString() {
-        return "Lépegető{" +
+        return "Sandwalker{" +
                 "name='" + name + '\'' +
                 ", isAlive=" + isAlive +
                 ", water=" + water +

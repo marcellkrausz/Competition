@@ -1,6 +1,6 @@
-public class Szivacs extends Thing{
+public class Sponge extends Creature{
 
-    public Szivacs(String name, int water, int distance) {
+    public Sponge(String name, int water, int distance) {
         super.name = name;
         super.water = water;
         super.maxWater = 20;
@@ -31,7 +31,7 @@ public class Szivacs extends Thing{
 
         @Override
         public String toString() {
-            return "Szivacs{" +
+            return "Sponge{" +
                     "name='" + name + '\'' +
                     ", isAlive=" + isAlive +
                     ", water=" + water +

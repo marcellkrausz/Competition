@@ -4,19 +4,19 @@ import java.util.List;
 public class Race {
 
     int day = 1;
-    List<Thing> things = new ArrayList<>();
+    List<Creature> participants = new ArrayList<>();
     List<Weather> weathers = new ArrayList<>();
 
     public Race() {
-        Homokjáró homokjáró = new Homokjáró("Vándor", 4);
-        Lépegető lépegető = new Lépegető("Seta", 7, 0);
-        Szivacs szivacs = new Szivacs("Csuszo", 12 , 0);
-        Szivacs szivacs1 = new Szivacs("Siklo",10, 0);
+        Sandwalker sandwalker = new Sandwalker("Vandor", 4);
+        Walker walker = new Walker("Seta", 7, 0);
+        Sponge sponge = new Sponge("Csuszo", 12 , 0);
+        Sponge sponge1 = new Sponge("Siklo",10, 0);
 
-        things.add(homokjáró);
-        things.add(lépegető);
-        things.add(szivacs);
-        things.add(szivacs1);
+        participants.add(sandwalker);
+        participants.add(walker);
+        participants.add(sponge);
+        participants.add(sponge1);
 
         Weather weather1 = new Weather("n");
         Weather weather2 = new Weather("f");
@@ -40,16 +40,16 @@ public class Race {
     }
 
     public void oneDayOfRace() {
-        for (int i = 0; i < things.size(); i++) {
+        for (int i = 0; i < participants.size(); i++) {
 
         }
         day++;
     }
     public void thingsAlive(){
-        for (int i = 0; i < things.size(); i++) {
-            if (things.get(i).isAlive) {
+        for (int i = 0; i < participants.size(); i++) {
+            if (participants.get(i).isAlive) {
                 System.out.println(day - 1  );
-                System.out.println(things.get(i).toString());
+                System.out.println(participants.get(i).toString());
             }
         }
     }

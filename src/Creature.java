@@ -1,4 +1,4 @@
-public abstract class Thing {
+public abstract class Creature {
 
     String name;
     Boolean isAlive;
